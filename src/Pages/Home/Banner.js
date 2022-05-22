@@ -8,7 +8,7 @@ const Banner = () => {
           <img
             className="rounded-md"
             width="600px"
-            src="https://i.ibb.co/qFmkhFz/pexels-sergei-starostin-6636474.jpg"
+            src="https://i.ibb.co/fQndLnK/banner.jpg"
             alt="computer component"
           />
           <div className="text-left">
