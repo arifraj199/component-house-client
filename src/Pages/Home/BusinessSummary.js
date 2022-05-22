@@ -14,7 +14,7 @@ const BusinessSummary = () => {
 
       <div class="stats shadow-lg bg-gray-200 ml-8 lg:mr-8 mb-4  mt-10">
         <div class="stat">
-          <div class="stat-title font-bold text-cyan-700 text-lg mb-2">Served Customers</div>
+          <div class="stat-title font-extrabold text-cyan-700 text-lg mb-2">Served Customers</div>
           <div className="font-4xl">
           <FontAwesomeIcon style={{"fontSize":"60px",'color':'#3A4256'}} icon={faPeopleGroup} />
             
@@ -26,7 +26,7 @@ const BusinessSummary = () => {
       </div>
       <div class="stats shadow-lg bg-slate-200 ml-8 lg:mr-8">
         <div class="stat">
-        <div class="stat-title font-bold text-cyan-700 text-lg mb-2">Reviews</div>
+        <div class="stat-title font-extrabold text-cyan-700 text-lg mb-2">Reviews</div>
           <div className="font-4xl">
           <FontAwesomeIcon style={{"fontSize":"60px",'color':'#3A4256'}} icon={faThumbsUp} />
           </div>
@@ -37,7 +37,7 @@ const BusinessSummary = () => {
       </div>
       <div class="stats shadow-lg bg-slate-200 ml-8 lg:mr-8">
         <div class="stat">
-        <div class="stat-title font-bold text-cyan-700 text-lg mb-2">Component</div>
+        <div class="stat-title font-extrabold text-cyan-700 text-lg mb-2">Component</div>
           <div className="font-4xl">
           <FontAwesomeIcon style={{"fontSize":"60px",'color':'#3A4256'}} icon={faScrewdriverWrench} />
           </div>
@@ -48,7 +48,7 @@ const BusinessSummary = () => {
       </div>
       <div class="stats shadow-lg bg-slate-200 ml-8 lg:mr-8">
         <div class="stat">
-        <div class="stat-title font-bold text-cyan-700 text-lg mb-2 ">Sold</div>
+        <div class="stat-title font-extrabold text-cyan-700 text-lg mb-2 ">Sold</div>
           <div className="font-4xl">
           <FontAwesomeIcon style={{"fontSize":"60px",'color':'#3A4256'}} icon={faPeopleCarryBox} />
           </div>
