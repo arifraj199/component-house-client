@@ -6,6 +6,7 @@ import Home from "./Pages/Home/Home";
 import Login from "./Pages/Login/Login/Login";
 import Signup from "./Pages/Login/Signup/Signup";
 import NotFound from "./Pages/NotFound/NotFound";
+import Purchase from "./Pages/Purchase/Purchase";
 import Navbar from "./Pages/Shared/Navbar";
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Route path="/home" element={<Home></Home>}></Route>
         <Route path="/about" element={<About></About>}></Route>
         <Route path="/blog" element={<Blog></Blog>}></Route>
+        <Route path="/purchase/:id" element={<Purchase></Purchase>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/signup" element={<Signup></Signup>}></Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>
