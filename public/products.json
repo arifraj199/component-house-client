@@ -1,0 +1,63 @@
+[
+    {
+      "id": "628a1af12b4c5b2e19d1f394",
+      "price": 20.19,
+      "picture": "https://i.ibb.co/chGXvHX/processor.jpg",
+      "minimum_order_quantity": 80,
+      "available_quantity": 251,
+      "name": "Intel Core i9 Processor ",
+      "description": "Tempor ea consectetur excepteur nostrud sint incididunt elit ea ad mollit cupidatat irure consequat eiusmod. Elit minim voluptate laborum est sint anim aliqua ullamco ipsum qui ut laboris excepteur."
+    },
+    {
+      "id": "628a1af18d4ec97b66d39f8e",
+      "price": 36.96,
+      "picture": "https://i.ibb.co/T8M2zJV/ram-1.jpg",
+      "minimum_order_quantity": 80,
+      "available_quantity": 201,
+      "name": "Samsung DDR3 Ram",
+      "description": "Qui veniam nulla aute occaecat minim in laborum laboris sit velit ad pariatur deserunt. Sit nostrud excepteur laborum elit exercitation officia. Mollit aliquip et irure dolore. "
+    },
+    {
+      "id": "628a1af1e531bddcd590dd44",
+      "price": 30.38,
+      "picture": "https://i.ibb.co/gDw8zq3/hdd.jpg",
+      "minimum_order_quantity": 80,
+      "available_quantity": 262,
+      "name": "Tosiba 1TB Hard Drive",
+      "description": "Exercitation cupidatat excepteur consectetur esse eiusmod laborum mollit deserunt exercitation. Mollit tempor id non commodo cillum excepteur. Ex laboris velit proident non ex aute ut elit aliquip excepteur non sit ex."
+    },
+    {
+      "id": "628a1af153b5dc4f78d9f93f",
+      "price": 13.9,
+      "picture": "https://i.ibb.co/F7kmV2X/graphics-1.jpg",
+      "minimum_order_quantity": 80,
+      "available_quantity": 263,
+      "name": "Nvidia 2gb Graphics",
+      "description": "Ad consequat enim sit officia id nostrud non id laboris deserunt sit pariatur pariatur id. In velit deserunt proident ut. Mollit sit minim sint sint nulla velit mollit elit consequat deserunt minim dolore. "
+    },
+    {
+      "id": "628a1af17ac7f1c0df373304",
+      "price": 10.52,
+      "picture": "https://i.ibb.co/r7DP6rr/motherboard-1.jpg",
+      "minimum_order_quantity": 80,
+      "available_quantity": 292,
+      "name": "Gigabyte Motherboard",
+      "description": "Incididunt incididunt eiusmod ex incididunt consectetur consectetur magna ipsum. Elit ipsum minim commodo labore exercitation adipisicing sint proident reprehenderit commodo laboris."
+    },
+    {
+      "id": "628a1af1bcfb901cd5e360bb",
+      "price": 31.91,
+      "picture": "https://i.ibb.co/jZYmJ4S/ssd-1.jpg",
+      "minimum_order_quantity": 80,
+      "available_quantity": 171,
+      "name": "Samsung 256gb SSD",
+      "description": "Minim aliqua ipsum magna ad magna magna ex ipsum velit. Qui incididunt irure fugiat sit commodo do elit occaecat irure cillum quis pariatur. "
+    }
+  ]
+
+
+  
+
+
+
+
