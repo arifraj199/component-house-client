@@ -1,15 +1,13 @@
 import React, { useRef } from "react";
 import { useForm } from "react-hook-form";
 import {
-    useAuthState,
     useSendPasswordResetEmail,
   useSignInWithEmailAndPassword,
   useSignInWithGoogle,
 } from "react-firebase-hooks/auth";
 import auth from "../../../firebase.init";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import LoadSpinner from "../../Shared/LoadSpinner";
-import { async } from "@firebase/util";
 import { toast } from 'react-toastify';
 
 const Login = () => {
@@ -24,25 +22,29 @@ const Login = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const emailRef = useRef('');
+//   const emailRef = useRef('');
   let errorMessage;
   const navigate = useNavigate();
 
-  if (error || gError) {
+  const location = useLocation();
+
+  let from = location.state?.from?.pathname || "/";
+
+  if (error || gError || resetError) {
     errorMessage = (
       <p className="text-red-500 text-sm">
-        {error?.message} {gError?.message}
+        {error?.message} {gError?.message} {resetError?.message}
       </p>
     );
   }
 
-  if (loading || gLoading) {
+  if (loading || gLoading || sending) {
     return <LoadSpinner></LoadSpinner>;
   }
 
   if (user || gUser) {
     console.log("user", user, gUser);
-    navigate('/');
+    navigate(from, { replace: true });
   }
 
   const onSubmit = async(data, event) => {
@@ -51,8 +53,8 @@ const Login = () => {
     event.target.reset();
   };
 
-  const handleReset = async ()=>{
-    const email = emailRef.current.value;
+  const handleReset = async (event)=>{
+    const email = event.target.name?.value;
       console.log(email);
     await sendPasswordResetEmail(email);
     if(email){
@@ -62,6 +64,7 @@ const Login = () => {
     }
     
   }
+
   return (
     <div class="hero min-h-screen bg-base-100">
       <div class="hero-content flex-col lg:flex-row">
@@ -92,7 +95,7 @@ const Login = () => {
                     },
                   })}
                   type="email"
-                  ref={emailRef}
+                  name="email"
                   placeholder="Enter Email"
                   className="input input-bordered w-full max-w-md"
                 />

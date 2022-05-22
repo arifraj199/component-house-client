@@ -11,6 +11,7 @@ import Navbar from "./Pages/Shared/Navbar";
 import { ToastContainer } from "react-toastify";
 
 import "react-toastify/dist/ReactToastify.css";
+import RequireAuth from "./Pages/Login/RequireAuth/RequireAuth";
 
 function App() {
   return (
@@ -21,7 +22,9 @@ function App() {
         <Route path="/home" element={<Home></Home>}></Route>
         <Route path="/about" element={<About></About>}></Route>
         <Route path="/blog" element={<Blog></Blog>}></Route>
-        <Route path="/purchase/:id" element={<Purchase></Purchase>}></Route>
+        <Route path="/purchase/:id" element={<RequireAuth>
+          <Purchase></Purchase>
+        </RequireAuth>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/signup" element={<Signup></Signup>}></Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>
