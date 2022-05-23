@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
 import LoadSpinner from "../Shared/LoadSpinner";
@@ -6,8 +6,13 @@ import PlaceOrder from "./PlaceOrder";
 
 const Purchase = () => {
   const { id } = useParams();
+  const [closeModal, setCloseModal] = useState(false);
 
-  const { data: items, isLoading,refetch } = useQuery(["items", id], () =>
+  const {
+    data: items,
+    isLoading,
+    refetch,
+  } = useQuery(["items", id], () =>
     fetch(`http://localhost:5000/purchase/${id}`).then((res) => res.json())
   );
 
@@ -37,14 +42,24 @@ const Purchase = () => {
 
             <p class="py-6">{items?.description}</p>
             <div>
-              <label for="component-modal" class="btn btn-primary w-1/7">
+              <label
+                onClick={() => setCloseModal(true)}
+                for="component-modal"
+                class="btn btn-primary w-1/7"
+              >
                 Purchase Item
               </label>
             </div>
           </div>
         </div>
       </div>
-      <PlaceOrder items={items} refetch={refetch}></PlaceOrder>
+      {closeModal && (
+        <PlaceOrder
+          items={items}
+          refetch={refetch}
+          setCloseModal={setCloseModal}
+        ></PlaceOrder>
+      )}
     </div>
   );
 };

@@ -3,7 +3,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { toast } from "react-toastify";
 import auth from "../../firebase.init";
 
-const PlaceOrder = ({ items, refetch }) => {
+const PlaceOrder = ({ items, refetch, setCloseModal }) => {
   const [user] = useAuthState(auth);
 
   const { _id, available_quantity, minimum_order_quantity } = items;
@@ -69,6 +69,8 @@ const PlaceOrder = ({ items, refetch }) => {
           console.log(data);
           if (data.success) {
             toast.success("data send to the server");
+            setCloseModal(false);
+            refetch();
           }
         });
     } else {
