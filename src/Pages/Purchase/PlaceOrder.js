@@ -1,22 +1,14 @@
-import React, { useEffect, useRef, useState } from "react";
-import { useParams } from "react-router-dom";
+import React, {  useRef} from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { toast } from "react-toastify";
+import auth from "../../firebase.init";
 
-const PlaceOrder = () => {
-  const { id } = useParams();
-  const [items, setItems] = useState({});
+const PlaceOrder = ({ items, refetch }) => {
 
-  useEffect(() => {
-    fetch(`http://localhost:5000/purchase/${id}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setItems(data);
-      });
-  }, [id]);
+    const [user] = useAuthState(auth);
+    
 
-  const { _id, available_quantity, minimum_order_quantity } = items;
-  //   console.log(id);
-  // console.log(available_quantity,name);
+  const { _id, available_quantity, minimum_order_quantity } = items;;
 
   const orderQuantity = useRef(0);
 
@@ -30,10 +22,7 @@ const PlaceOrder = () => {
       const { available_quantity, ...rest } = items;
       const newQuantity = parseInt(available_quantity) - parseInt(quantity);
       const newItem = { available_quantity: newQuantity, ...rest };
-      //   newItem.items = items;
-      setItems(newItem);
-      //   console.log(newItem);
-
+  
       fetch(`http://localhost:5000/purchase/${id}`, {
         method: "PUT",
         headers: {
@@ -44,14 +33,14 @@ const PlaceOrder = () => {
         .then((res) => res.json())
         .then((data) => {
           console.log(data);
-          if(data.success){
-              toast("order is set")
+          if (data.success) {
+            toast("order is set");
+            refetch();
           }
         });
 
       orderQuantity.current.value = "";
-    } else {
-    }
+    } 
   };
 
   return (
@@ -71,12 +60,16 @@ const PlaceOrder = () => {
           <form onSubmit={handleOrderQuantity}>
             <input
               type="text"
+              value={user?.displayName}
+              disabled
               placeholder="Enter Your Full Name"
               class="input input-bordered w-full max-w-xs my-3"
             />
 
             <input
               type="email"
+              value={user?.email}
+              disabled
               placeholder="email"
               class="input input-bordered w-full max-w-xs mb-3"
             />
@@ -98,8 +91,19 @@ const PlaceOrder = () => {
               ref={orderQuantity}
               class="input input-bordered w-full max-w-xs mb-3"
             />
-
-            <input type="submit" value="Order" class="btn w-full max-w-xs" />
+            <div className="flex justify-center">
+              <input
+                type="submit"
+                value="Order"
+                className="btn w-1/3 max-w-xs mr-4"
+              />
+              <label
+                for="component-modal"
+                class="btn bg-red-800 border-0 w-1/3 max-w-xs"
+              >
+                Close
+              </label>
+            </div>
           </form>
         </div>
       </div>

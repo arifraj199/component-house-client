@@ -7,7 +7,7 @@ import PlaceOrder from "./PlaceOrder";
 const Purchase = () => {
   const { id } = useParams();
 
-  const { data: items, isLoading } = useQuery(["items", id], () =>
+  const { data: items, isLoading,refetch } = useQuery(["items", id], () =>
     fetch(`http://localhost:5000/purchase/${id}`).then((res) => res.json())
   );
 
@@ -44,7 +44,7 @@ const Purchase = () => {
           </div>
         </div>
       </div>
-      <PlaceOrder items={items}></PlaceOrder>
+      <PlaceOrder items={items} refetch={refetch}></PlaceOrder>
     </div>
   );
 };
