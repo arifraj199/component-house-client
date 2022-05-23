@@ -51,7 +51,7 @@ const Signup = () => {
         <div class="text-center lg:text-left">
           <img
             className=" flex-shrink-1 w-full max-w-2xl rounded-lg"
-            src="https://i.ibb.co/dth4mkg/Signup.jpg"
+            src="https://i.ibb.co/DLx5bC7/Signup.jpg"
             alt=""
           />
         </div>
