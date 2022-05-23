@@ -4,7 +4,7 @@ import Component from "./Component";
 const ComputerParts = () => {
   const [components, setComponents] = useState([]);
 
-  fetch("products.json")
+  fetch("http://localhost:5000/component")
     .then((res) => res.json())
     .then((data) => {
       setComponents(data);

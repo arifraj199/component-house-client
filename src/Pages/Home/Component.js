@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 const Component = ({ component }) => {
   const {
-    id,
+    _id,
     name,
     price,
     picture,
@@ -34,7 +34,7 @@ const Component = ({ component }) => {
           <small>{description}</small>
         </p>
         <div class="mt-4 justify-end">
-          <button onClick={()=>navigate(`/purchase/${id}`)} class="btn btn-primary w-full">Place Order</button>
+          <button onClick={()=>navigate(`/purchase/${_id}`)} class="btn btn-primary w-full">Place Order</button>
         </div>
       </div>
     </div>
