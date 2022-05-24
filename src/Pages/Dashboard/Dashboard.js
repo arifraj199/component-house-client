@@ -16,18 +16,19 @@ const Dashboard = () => {
         <label for="component-drawer" class="drawer-overlay"></label>
         <ul class="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content">
          {/* sidebar content */}
+         
          <li>
-            <Link to='/dashboard'>All User</Link>
-            
-          </li>
-         <li>
-            <Link to='/dashboard/profile'>My Profile</Link>
+            <Link to='/dashboard'>My Profile</Link>
           </li>
           <li>
             <Link to='/dashboard/myorder'>My Order</Link>
           </li>
           <li>
             <Link to='/dashboard/addreview'>Add Review</Link>
+          </li>
+          <li>
+            <Link to='/dashboard/alluser'>All User</Link>
+            
           </li>
         </ul>
       </div>
