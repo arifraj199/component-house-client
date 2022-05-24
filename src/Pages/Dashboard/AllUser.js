@@ -4,18 +4,17 @@ import LoadSpinner from "../Shared/LoadSpinner";
 import Users from "./Users";
 
 const AllUser = () => {
-    
-    const {data:users,isLoading,refetch} = useQuery('users',()=>fetch('http://localhost:5000/purchase').then(res=>res.json()));
+  const { data: users, isLoading } = useQuery("users", () =>
+    fetch("http://localhost:5000/users").then((res) => res.json())
+  );
 
-    
-
-    if(isLoading){
-        return <LoadSpinner></LoadSpinner>
-    }
+  if (isLoading) {
+    return <LoadSpinner></LoadSpinner>;
+  }
 
   return (
     <div class="overflow-x-auto">
-        <h2 className="text-2xl">Users</h2>
+      <h2 className="text-2xl">Users</h2>
       <table class="table table-zebra w-full">
         <thead>
           <tr>
@@ -26,15 +25,9 @@ const AllUser = () => {
           </tr>
         </thead>
         <tbody>
-         
-            {
-                users.map((user,index)=><Users 
-                    key={index}
-                    user={user}
-                    index={index}
-                ></Users>)
-            }
-          
+          {users.map((user, index) => (
+            <Users key={index} user={user} index={index}></Users>
+          ))}
         </tbody>
       </table>
     </div>
