@@ -33,7 +33,6 @@ const MyOrder = () => {
           <thead>
             <tr className="text-center">
               <th>Avatar</th>
-              <th>ID</th>
               <th>Item Name</th>
               <th>Total Price</th>
               <th>Quantity</th>

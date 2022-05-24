@@ -1,4 +1,3 @@
-
 import React from "react";
 
 const OrderItem = ({ order, setDeleteItem }) => {
@@ -11,7 +10,6 @@ const OrderItem = ({ order, setDeleteItem }) => {
           </div>
         </div>
       </th>
-      <td>{order._id}</td>
       <td>{order.itemName}</td>
       <td>${order.price}</td>
       <td>{order.quantity}</td>
