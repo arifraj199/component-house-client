@@ -14,14 +14,17 @@ const AllUser = () => {
 
   return (
     <div class="overflow-x-auto">
-      <h2 className="text-2xl">Users</h2>
+      <h2 className="text-2xl text-left font-bold">Users</h2>
+      <hr className="mt-4 w-5/6 mb-5 text-black" />
       <table class="table table-zebra w-full">
         <thead>
-          <tr>
+          <tr className="text-center">
             <th>ID</th>
             <th>Name</th>
             <th>Email</th>
             <th>Phone</th>
+            <th>Admin</th>
+            <th>Delete</th>
           </tr>
         </thead>
         <tbody>

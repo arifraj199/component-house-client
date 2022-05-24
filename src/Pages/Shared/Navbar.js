@@ -6,6 +6,7 @@ import auth from "../../firebase.init";
 
 const Navbar = () => {
   const [user] = useAuthState(auth);
+  // const userName = user.split(' ')[0];
   const logout = () => {
     signOut(auth);
   };
@@ -47,11 +48,11 @@ const Navbar = () => {
                 <>
                   <Link to="/dashboard">Dashboard</Link>
                   <Link onClick={logout} to="/login">
-                    Sign Out
+                  <span className="font-bold">Logout {user?.displayName?.toUpperCase().split(' ')[0]}</span>
                   </Link>
-                  <p className=" btn-sm ml-3 w-7/12  bg-slate-600 text-white">
+                  {/* <p className=" btn-sm ml-3 w-7/12  bg-slate-600 text-white">
                     {user?.displayName}
-                  </p>
+                  </p> */}
                 </>
               ) : (
                 <Link to="/login">Login</Link>
@@ -78,12 +79,12 @@ const Navbar = () => {
             {user ? (
               <>
                 <Link to="/dashboard">Dashboard</Link>
-                <Link onClick={logout} to="/login">
-                  Sign Out
+                <Link style={{"borderRadius":"20px","font-size":"14px"}} className=" btn btn-outline btn-secondary " onClick={logout} to="/login">
+                  <span className="font-bold ">SignOut {user?.displayName?.toUpperCase().split(' ')[0]}</span>
                 </Link>
-                <Link className=" btn-sm mt-2 bg-slate-600 text-white" to="">
+                {/* <Link className=" btn-sm mt-2 bg-slate-600 text-white" to="">
                   {user?.displayName}
-                </Link>
+                </Link> */}
               </>
             ) : (
               <Link to="/login">Login</Link>
