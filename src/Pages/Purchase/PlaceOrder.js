@@ -148,14 +148,8 @@ const PlaceOrder = ({ items, refetch, setCloseModal }) => {
               <input
                 type="submit"
                 value="Order"
-                className="btn w-1/3 max-w-xs mr-4"
+                className="btn w-full max-w-xs"
               />
-              <label
-                for="component-modal"
-                class="btn bg-red-800 border-0 w-1/3 max-w-xs"
-              >
-                Close
-              </label>
             </div>
           </form>
         </div>
