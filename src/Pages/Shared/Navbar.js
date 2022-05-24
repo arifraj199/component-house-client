@@ -49,7 +49,9 @@ const Navbar = () => {
                   <Link onClick={logout} to="/login">
                     Sign Out
                   </Link>
-                  <Link className=" btn-sm ml-3 w-7/12  bg-slate-600 text-white" to="">{user?.displayName}</Link>
+                  <p className=" btn-sm ml-3 w-7/12  bg-slate-600 text-white">
+                    {user?.displayName}
+                  </p>
                 </>
               ) : (
                 <Link to="/login">Login</Link>
@@ -79,7 +81,9 @@ const Navbar = () => {
                 <Link onClick={logout} to="/login">
                   Sign Out
                 </Link>
-                <Link className=" btn-sm mt-2 bg-slate-600 text-white" to="">{user?.displayName}</Link>
+                <Link className=" btn-sm mt-2 bg-slate-600 text-white" to="">
+                  {user?.displayName}
+                </Link>
               </>
             ) : (
               <Link to="/login">Login</Link>
