@@ -81,6 +81,14 @@ const MyProfile = () => {
                 </span>
               </>
             )}
+            {users[0]?.linkedin && (
+              <>
+                <h1 class="text-1xl">LinkedIn URL:</h1>
+                <span className="font-bold block text-xl mb-4">
+                  {users[0]?.linkedin}
+                </span>
+              </>
+            )}
             <button
               onClick={() => navigate("/editprofile")}
               class="btn btn-active btn-secondary "

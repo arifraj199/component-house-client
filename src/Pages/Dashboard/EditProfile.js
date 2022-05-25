@@ -41,6 +41,7 @@ const EditProfile = () => {
             department: data.department,
             address: data.address,
             phone: data.phone,
+            linkedin:data.linkedin,
             image: img,
           };
 
@@ -193,7 +194,7 @@ const EditProfile = () => {
             {...register("phone", {
               required: {
                 value: true,
-                message: "Image is required",
+                message: "phone number is required",
               },
             })}
             type="number"
@@ -206,6 +207,29 @@ const EditProfile = () => {
             )}
           </label>
         </div>
+
+        <div className="form-control w-full max-w-xs">
+          <label className="label">
+            <span className="label-text">LinkedIn URL:</span>
+          </label>
+          <input
+            {...register("linkedin", {
+              required: {
+                value: true,
+                message: "linkedin is required",
+              },
+            })}
+            type="text"
+            placeholder="Your linkedin profile"
+            className="input input-bordered w-full max-w-xs"
+          />
+          <label className="label">
+            {errors.linkedin?.type === "required" && (
+              <span className="text-red-500">{errors.linkedin?.message}</span>
+            )}
+          </label>
+        </div>
+
         <div className="form-control w-full max-w-xs">
           <label className="label">
             <span className="label-text">Photo</span>
