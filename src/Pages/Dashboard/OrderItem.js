@@ -1,3 +1,5 @@
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 
 const OrderItem = ({ order, setDeleteItem }) => {
@@ -22,7 +24,7 @@ const OrderItem = ({ order, setDeleteItem }) => {
           for="delete-modal"
           class="btn bg-red-800 modal-button"
         >
-          Delete
+          <FontAwesomeIcon icon={faTrash}></FontAwesomeIcon>
         </label>
       </td>
     </tr>

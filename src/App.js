@@ -17,6 +17,7 @@ import MyOrder from "./Pages/Dashboard/MyOrder";
 import MyProfile from "./Pages/Dashboard/MyProfile";
 import AddReview from "./Pages/Dashboard/AddReview";
 import AllUser from "./Pages/Dashboard/AllUser";
+import EditProfile from "./Pages/Dashboard/EditProfile";
 
 function App() {
   return (
@@ -48,6 +49,7 @@ function App() {
           <Route path="addreview" element={<AddReview></AddReview>}></Route>
           <Route path="alluser" element={<AllUser></AllUser>}></Route>
         </Route>
+        <Route path="/editprofile" element={<EditProfile></EditProfile>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/signup" element={<Signup></Signup>}></Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>
