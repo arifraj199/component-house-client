@@ -1,6 +1,7 @@
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import auth from "../../firebase.init";
 
@@ -12,10 +13,12 @@ const EditProfile = () => {
     handleSubmit,
     reset,
   } = useForm();
+  const navigate = useNavigate();
 
   const imageAPI = "abba58955c881135661a7c54bf264eca";
 
   const onSubmit = async (data, event) => {
+      
     console.log(data);
     const image = data.image[0];
     const formData = new FormData();
@@ -55,6 +58,7 @@ const EditProfile = () => {
               if (inserted.success.acknowledged) {
                 toast.success("Profile Updated Successfully");
                 reset();
+                navigate('/dashboard');
               } else {
                 toast.error("Failed to Update Profile");
               }
@@ -183,6 +187,27 @@ const EditProfile = () => {
 
         <div className="form-control w-full max-w-xs">
           <label className="label">
+            <span className="label-text">Contact</span>
+          </label>
+          <input
+            {...register("phone", {
+              required: {
+                value: true,
+                message: "Image is required",
+              },
+            })}
+            type="number"
+            placeholder="Enter Phone Number"
+            className="input input-bordered w-full max-w-xs"
+          />
+          <label className="label">
+            {errors.phone?.type === "required" && (
+              <span className="text-red-500">{errors.phone?.message}</span>
+            )}
+          </label>
+        </div>
+        <div className="form-control w-full max-w-xs">
+          <label className="label">
             <span className="label-text">Photo</span>
           </label>
           <input
@@ -204,9 +229,9 @@ const EditProfile = () => {
         </div>
 
         <input
-          className="btn w-full max-w-xs mr-12"
+          className="btn btn-outline btn-secondary w-full max-w-xs mr-12"
           type="submit"
-          value="Submit"
+          value="Update"
         />
       </form>
     </div>
