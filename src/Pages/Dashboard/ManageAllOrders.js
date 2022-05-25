@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { useQuery } from "react-query";
 import LoadSpinner from "../Shared/LoadSpinner";
 import AllOrder from "./AllOrder";
+import RemoveItemModal from "./RemoveItemModal";
 
 const ManageAllOrders = () => {
-  const { data: orders, isLoading } = useQuery("orders", () =>
+  const [deleteIem, setDeleteItem] = useState(null);
+  const {
+    data: orders,
+    isLoading,
+    refetch,
+  } = useQuery("orders", () =>
     fetch("http://localhost:5000/order", {
       method: "GET",
       headers: {
@@ -18,11 +24,13 @@ const ManageAllOrders = () => {
   }
   return (
     <div>
-      <h2 className="text-2xl font-bold mb-4">Manage All Orders:{orders.length}</h2>
+      <h2 className="text-2xl font-bold mb-4">
+        Manage All Orders:{orders.length}
+      </h2>
       <div class="overflow-x-auto">
         <table class="table w-full">
           <thead>
-            <tr>
+            <tr className="text-center">
               <th>ID</th>
               <th>Avatar</th>
               <th>Item Name</th>
@@ -33,15 +41,23 @@ const ManageAllOrders = () => {
             </tr>
           </thead>
           <tbody>
-            {
-                orders.map((order,index)=><AllOrder 
-                    key={order._id}
-                    order={order}
-                    index={index}
-                ></AllOrder>)
-            }
+            {orders.map((order, index) => (
+              <AllOrder
+                key={order._id}
+                order={order}
+                index={index}
+                setDeleteItem={setDeleteItem}
+              ></AllOrder>
+            ))}
           </tbody>
         </table>
+        {deleteIem && (
+          <RemoveItemModal
+            deleteIem={deleteIem}
+            setDeleteItem={setDeleteItem}
+            refetch={refetch}
+          ></RemoveItemModal>
+        )}
       </div>
     </div>
   );

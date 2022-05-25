@@ -1,6 +1,7 @@
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
+import { Link } from "react-router-dom";
 
 const OrderItem = ({ order, setDeleteItem }) => {
   return (
@@ -16,7 +17,21 @@ const OrderItem = ({ order, setDeleteItem }) => {
       <td>${order.price}</td>
       <td>{order.quantity}</td>
       <td>
-        <button class="btn btn-outline btn-secondary font-bold">PAY</button>
+        {order.price && !order.paid && (
+          <Link to={`/dashboard/payment/${order._id}`}>
+            {" "}
+            <button class="btn btn-outline btn-secondary font-bold">PAY</button>
+          </Link>
+        )}
+        {order.price && order.paid && (
+          <div>
+            <span className="text-success">Paid</span>
+            <p>
+              Transaction Id:{" "}
+              <span className="text-success">{order?.transactionId}</span>
+            </p>
+          </div>
+        )}
       </td>
       <td>
         <label

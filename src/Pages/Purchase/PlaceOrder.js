@@ -51,7 +51,7 @@ const PlaceOrder = ({ items, refetch, setCloseModal }) => {
         name: displayName.current.value,
         email: user?.email,
         picture: items?.picture,
-        price:parseInt(items?.price*quantity),
+        price:items?.price*quantity,
         itemName: items?.name,
         address: address.current.value,
         phone: phoneNumber.current.value,
