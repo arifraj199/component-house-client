@@ -13,7 +13,12 @@ const Purchase = () => {
     isLoading,
     refetch,
   } = useQuery(["items", id], () =>
-    fetch(`http://localhost:5000/purchase/${id}`).then((res) => res.json())
+    fetch(`http://localhost:5000/purchase/${id}`,{
+      method:"GET",
+      headers:{
+        'authorization':`Bearer ${localStorage.getItem('accessToken')}`
+      }
+    }).then((res) => res.json())
   );
 
   if (isLoading) {

@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { useForm } from "react-hook-form";
 import {
     useSendPasswordResetEmail,
@@ -9,6 +9,7 @@ import auth from "../../../firebase.init";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import LoadSpinner from "../../Shared/LoadSpinner";
 import { toast } from 'react-toastify';
+import useToken from "../../../hooks/useToken";
 
 const Login = () => {
   const [signInWithEmailAndPassword, user, loading, error] =
@@ -22,6 +23,7 @@ const Login = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+  const [token] = useToken(user || gUser)
 //   const emailRef = useRef('');
   let errorMessage;
   const navigate = useNavigate();
@@ -29,6 +31,12 @@ const Login = () => {
   const location = useLocation();
 
   let from = location.state?.from?.pathname || "/";
+
+  useEffect( ()=>{
+    if (token) {
+      navigate(from, { replace: true });
+    }
+  },[token,from,navigate])
 
   if (error || gError || resetError) {
     errorMessage = (
@@ -42,10 +50,6 @@ const Login = () => {
     return <LoadSpinner></LoadSpinner>;
   }
 
-  if (user || gUser) {
-    console.log("user", user, gUser);
-    navigate(from, { replace: true });
-  }
 
   const onSubmit = async(data, event) => {
     console.log(data);

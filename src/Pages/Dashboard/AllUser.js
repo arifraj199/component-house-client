@@ -5,7 +5,12 @@ import Users from "./Users";
 
 const AllUser = () => {
   const { data: users, isLoading } = useQuery("users", () =>
-    fetch("http://localhost:5000/users").then((res) => res.json())
+    fetch("http://localhost:5000/users",{
+      method:"GET",
+      headers:{
+        'authorization':`Bearer ${localStorage.getItem('accessToken')}`
+      }
+    }).then((res) => res.json())
   );
 
   // console.log(users)

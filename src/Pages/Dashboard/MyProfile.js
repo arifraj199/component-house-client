@@ -10,7 +10,12 @@ const MyProfile = () => {
   const navigate = useNavigate();
 
   const { data: users, isLoading } = useQuery("users", () =>
-    fetch(`http://localhost:5000/user?email=${user?.email}`).then((res) =>
+    fetch(`http://localhost:5000/user?email=${user?.email}`,{
+      method:"GET",
+      headers:{
+        'authorization':`Bearer ${localStorage.getItem('accessToken')}`
+      }
+    }).then((res) =>
       res.json()
     )
   );

@@ -75,6 +75,7 @@ const PlaceOrder = ({ items, refetch, setCloseModal }) => {
         method: "POST",
         headers: {
           "content-type": "application/json",
+          'authorization':`Bearer ${localStorage.getItem('accessToken')}`
         },
         body: JSON.stringify(userInfo),
       })

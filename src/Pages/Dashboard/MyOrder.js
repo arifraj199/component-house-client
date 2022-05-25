@@ -15,7 +15,12 @@ const MyOrder = () => {
     isLoading,
     refetch,
   } = useQuery("orders", () =>
-    fetch(`http://localhost:5000/purchase?email=${user?.email}`).then((res) =>
+    fetch(`http://localhost:5000/purchase?email=${user?.email}`,{
+      method:"GET",
+      headers:{
+        'authorization':`Bearer ${localStorage.getItem('accessToken')}`
+      }
+    }).then((res) =>
       res.json()
     )
   );

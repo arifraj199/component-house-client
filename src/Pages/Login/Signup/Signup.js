@@ -7,6 +7,7 @@ import {
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import auth from "../../../firebase.init";
+import useToken from "../../../hooks/useToken";
 import LoadSpinner from "../../Shared/LoadSpinner";
 
 const Signup = () => {
@@ -19,6 +20,7 @@ const Signup = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+  const [token] = useToken(user || gUser)
   let errorMessage;
   const navigate = useNavigate();
 
@@ -34,8 +36,8 @@ const Signup = () => {
     return <LoadSpinner></LoadSpinner>;
   }
 
-  if (user || gUser) {
-    console.log("user", user, gUser);
+  if (token) {
+    // console.log("user", user, gUser);
     navigate('/');
   }
 

@@ -50,13 +50,14 @@ const EditProfile = () => {
             method: "PUT",
             headers: {
               "content-type": "application/json",
+              'authorization':`Bearer ${localStorage.getItem('accessToken')}`
             },
             body: JSON.stringify(updateInfo),
           })
             .then((res) => res.json())
             .then((inserted) => {
               console.log(inserted);
-              if (inserted.success.acknowledged) {
+              if (inserted.acknowledged === true) {
                 toast.success("Profile Updated Successfully");
                 reset();
                 navigate('/dashboard');
