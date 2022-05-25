@@ -50,7 +50,7 @@ const MyProfile = () => {
           <div className="text-left">
             <h1 class="text-1xl">User Name:</h1>
             <span className="font-bold block text-xl mb-2">
-              {user.displayName}
+              {user?.displayName}
             </span>
             <h1 class="text-1xl">User Email:</h1>
             <span className="font-bold block text-xl mb-4">{user.email}</span>

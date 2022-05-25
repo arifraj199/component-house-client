@@ -4,7 +4,7 @@ import LoadSpinner from "../Shared/LoadSpinner";
 import Users from "./Users";
 
 const AllUser = () => {
-  const { data: users, isLoading } = useQuery("users", () =>
+  const { data: users, isLoading,refetch } = useQuery("users", () =>
     fetch("http://localhost:5000/users",{
       method:"GET",
       headers:{
@@ -36,7 +36,7 @@ const AllUser = () => {
         </thead>
         <tbody>
           {users.map((user, index) => (
-            <Users key={index} user={user} index={index}></Users>
+            <Users key={index} user={user} index={index} refetch={refetch}></Users>
           ))}
         </tbody>
       </table>
