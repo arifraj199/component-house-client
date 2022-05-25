@@ -48,9 +48,9 @@ const Navbar = () => {
               {user ? (
                 <>
                   <Link to="/dashboard">Dashboard</Link>
-                  <Link onClick={logout} to="/login">
-                  <span className="font-bold">Logout {user?.displayName?.toUpperCase().split(' ')[0]}</span>
-                  </Link>
+                  <Link style={{"borderRadius":"20px","font-size":"13px","border":"2px solid"}} className=" btn btn-outline btn-secondary w-2/3" onClick={logout} to="/login">
+                  <span className="font-bold ">SignOut {user?.displayName?.toUpperCase().split(' ')[0]}</span>
+                </Link>
                   {/* <p className=" btn-sm ml-3 w-7/12  bg-slate-600 text-white">
                     {user?.displayName}
                   </p> */}
@@ -80,7 +80,7 @@ const Navbar = () => {
             {user ? (
               <>
                 <Link to="/dashboard">Dashboard</Link>
-                <Link style={{"borderRadius":"20px","font-size":"14px"}} className=" btn btn-outline btn-secondary " onClick={logout} to="/login">
+                <Link style={{"borderRadius":"20px","font-size":"14px","border":"2px solid"}} className=" btn btn-outline btn-secondary " onClick={logout} to="/login">
                   <span className="font-bold ">SignOut {user?.displayName?.toUpperCase().split(' ')[0]}</span>
                 </Link>
                 {/* <Link className=" btn-sm mt-2 bg-slate-600 text-white" to="">

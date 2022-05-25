@@ -30,6 +30,7 @@ const PlaceOrder = ({ items, refetch, setCloseModal }) => {
         method: "PUT",
         headers: {
           "content-type": "application/json",
+          'authorization':`Bearer ${localStorage.getItem('accessToken')}`
         },
         body: JSON.stringify(newItem),
       })
@@ -50,7 +51,7 @@ const PlaceOrder = ({ items, refetch, setCloseModal }) => {
         name: displayName.current.value,
         email: user?.email,
         picture: items?.picture,
-        price:items?.price*quantity,
+        price:parseInt(items?.price*quantity),
         itemName: items?.name,
         address: address.current.value,
         phone: phoneNumber.current.value,
@@ -62,6 +63,7 @@ const PlaceOrder = ({ items, refetch, setCloseModal }) => {
         method: "POST",
         headers: {
           "content-type": "application/json",
+          'authorization':`Bearer ${localStorage.getItem('accessToken')}`
         },
         body: JSON.stringify(userInfo),
       })
@@ -163,7 +165,7 @@ const PlaceOrder = ({ items, refetch, setCloseModal }) => {
               <input
                 type="submit"
                 value="Order"
-                className="btn w-full max-w-xs"
+                className="btn w-full max-w-xs btn-outline btn-secondary"
               />
             </div>
           </form>
