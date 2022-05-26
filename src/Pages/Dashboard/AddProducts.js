@@ -36,7 +36,7 @@ const AddProducts = () => {
             name: data.name,
             price: data.price,
             minimum_order_quantity: data.minimum_order_quantity,
-            available_order_quantity: data.available_order_quantity,
+            available_quantity: data.available_quantity,
             description: data.description,
             picture: img,
           };
@@ -56,7 +56,7 @@ const AddProducts = () => {
               if (inserted.acknowledged === true) {
                 toast.success("Product Added  Successfully");
                 reset();
-                navigate("/dashboard");
+                navigate("/dashboard/manageproduct");
               } else {
                 toast.error("Failed to Add Product");
               }
@@ -141,23 +141,23 @@ const AddProducts = () => {
 
         <div className="form-control w-full max-w-xs lg:max-w-md">
           <label className="label">
-            <span className="label-text">Available Order Quantity</span>
+            <span className="label-text">Available Quantity</span>
           </label>
           <input
-            {...register("available_order_quantity", {
+            {...register("available_quantity", {
               required: {
                 value: true,
                 message: "available quantity is required",
               },
             })}
             type="text"
-            placeholder="Available Order Quantity"
+            placeholder="Available Quantity"
             className="input input-bordered w-full max-w-xs lg:max-w-md"
           />
           <label className="label">
-            {errors.available_order_quantity?.type === "required" && (
+            {errors.available_quantity?.type === "required" && (
               <span className="text-red-500">
-                {errors.available_order_quantity?.message}
+                {errors.available_quantity?.message}
               </span>
             )}
           </label>
