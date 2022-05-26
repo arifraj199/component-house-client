@@ -5,6 +5,7 @@ import BusinessSummary from './BusinessSummary';
 import ComputerParts from './ComputerParts';
 import ConnectUs from './ConnectUs';
 import Reviews from './Reviews';
+import WhyChooseUs from './WhyChooseUs';
 
 const Home = () => {
     return (
@@ -13,8 +14,9 @@ const Home = () => {
             <ComputerParts></ComputerParts>
             <BusinessSummary></BusinessSummary>
             <Reviews></Reviews>
+            <WhyChooseUs></WhyChooseUs>
             <ConnectUs></ConnectUs>
-            <Footer></Footer>
+            
         </div>
     );
 };

@@ -16,9 +16,7 @@ const Banner = () => {
               Get <span className="text-purple-800">Computer Parts</span>
             </h1>
             <p className="py-6">
-              Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-              excepturi exercitationem quasi. In deleniti eaque aut repudiandae
-              et a id nisi.
+              Find your products from us.We can assure you to get best output from our service.Get your product soon...
             </p>
             <button className="btn btn-primary">Explore Now!</button>
           </div>

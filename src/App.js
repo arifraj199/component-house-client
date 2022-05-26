@@ -23,6 +23,7 @@ import ManageAllOrders from "./Pages/Dashboard/ManageAllOrders";
 import AddProducts from "./Pages/Dashboard/AddProducts";
 import ManageProducts from "./Pages/Dashboard/ManageProducts";
 import Payment from "./Pages/Dashboard/Payment";
+import Footer from "./Pages/Shared/Footer";
 
 function App() {
   return (
@@ -63,6 +64,7 @@ function App() {
         <Route path="/signup" element={<Signup></Signup>}></Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
+      <Footer></Footer>
       <ToastContainer />
     </div>
   );
