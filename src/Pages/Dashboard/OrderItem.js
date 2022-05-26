@@ -23,9 +23,15 @@ const OrderItem = ({ order, setDeleteItem }) => {
             <button class="btn btn-outline btn-secondary font-bold">PAY</button>
           </Link>
         )}
-        {order.price && order.paid && (
+        {order.price && order.paid && !order.approve && (
+          <Link to={`/dashboard/payment/${order._id}`}>
+            {" "}
+            <button class="btn btn-error font-bold">Pending</button>
+          </Link>
+        )}
+        {order.price && order.paid && order.approve && (
           <div>
-            <span className="text-success">Paid</span>
+            <span className="text-success">Shipped</span>
             <p>
               Transaction Id:{" "}
               <span className="text-success">{order?.transactionId}</span>
@@ -36,6 +42,7 @@ const OrderItem = ({ order, setDeleteItem }) => {
       <td>
         <label
           onClick={() => setDeleteItem(order)}
+          disabled={order.paid}
           for="delete-modal"
           class="btn bg-red-800 modal-button"
         >

@@ -47,6 +47,7 @@ const ManageAllOrders = () => {
                 order={order}
                 index={index}
                 setDeleteItem={setDeleteItem}
+                refetch={refetch}
               ></AllOrder>
             ))}
           </tbody>
