@@ -20,7 +20,7 @@ const Signup = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const [token] = useToken(user || gUser)
+  const [token] = useToken(user || gUser);
   let errorMessage;
   const navigate = useNavigate();
 
@@ -37,7 +37,7 @@ const Signup = () => {
   }
 
   if (token) {
-    // console.log("user", user, gUser);
+    console.log("user", user, gUser);
     navigate('/');
   }
 
