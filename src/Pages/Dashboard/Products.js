@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const Products = ({ product }) => {
+const Products = ({ product, setDeleteItem }) => {
   const {
     _id,
     name,
@@ -36,10 +36,17 @@ const Products = ({ product }) => {
         <div class="mt-4 justify-end">
           <button
             onClick={() => navigate(`/purchase/${_id}`)}
-            class="btn btn-primary w-full"
+            class="btn btn-primary mr-2"
           >
             Update
           </button>
+          <label
+            onClick={() => setDeleteItem(product)}
+            for="manage-product-delete"
+            class="btn bg-red-800 modal-button"
+          >
+            Delete
+          </label>
         </div>
       </div>
     </div>

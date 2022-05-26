@@ -40,12 +40,12 @@ const AllOrder = ({ order, index, setDeleteItem, refetch }) => {
       <td>{quantity}</td>
       <td>{price}</td>
       <td>
-        {!order.paid && <button className="btn btn-secondary">Unpaid</button>}
+        {!order.paid && <button className="btn btn-warning">Unpaid</button>}
         {order.paid && (
           <button
             onClick={() => handleApprove(order._id)}
             disabled={order.approve}
-            className="btn btn-secondary"
+            className="btn btn-success"
           >
             Paid
           </button>
