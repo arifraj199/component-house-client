@@ -5,7 +5,7 @@ const DeleteConfirmModal = ({ deleteIem, setDeleteItem, refetch }) => {
   const { _id } = deleteIem;
   const handleDelete = (id) => {
     console.log(id);
-    fetch(`http://localhost:5000/purchase/${id}`, {
+    fetch(`https://pure-sierra-39289.herokuapp.com/purchase/${id}`, {
       method: "DELETE",
       headers:{
         'authorization':`Bearer ${localStorage.getItem('accessToken')}`
@@ -13,7 +13,7 @@ const DeleteConfirmModal = ({ deleteIem, setDeleteItem, refetch }) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        
         if (data.deletedCount > 0) {
           toast.success("item is deleted");
           setDeleteItem(null);

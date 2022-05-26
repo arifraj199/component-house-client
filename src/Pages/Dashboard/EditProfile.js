@@ -18,8 +18,6 @@ const EditProfile = () => {
   const imageAPI = "abba58955c881135661a7c54bf264eca";
 
   const onSubmit = async (data, event) => {
-      
-    console.log(data);
     const image = data.image[0];
     const formData = new FormData();
     formData.append("image", image);
@@ -30,7 +28,6 @@ const EditProfile = () => {
     })
       .then((res) => res.json())
       .then((result) => {
-        console.log(result);
         if (result.success) {
           const img = result.data.url;
 
@@ -41,26 +38,25 @@ const EditProfile = () => {
             department: data.department,
             address: data.address,
             phone: data.phone,
-            linkedin:data.linkedin,
+            linkedin: data.linkedin,
             image: img,
           };
 
-          const url = "http://localhost:5000/user";
+          const url = "https://pure-sierra-39289.herokuapp.com/user";
           fetch(url, {
             method: "PUT",
             headers: {
               "content-type": "application/json",
-              'authorization':`Bearer ${localStorage.getItem('accessToken')}`
+              authorization: `Bearer ${localStorage.getItem("accessToken")}`,
             },
             body: JSON.stringify(updateInfo),
           })
             .then((res) => res.json())
             .then((inserted) => {
-              console.log(inserted);
               if (inserted.acknowledged === true) {
                 toast.success("Profile Updated Successfully");
                 reset();
-                navigate('/dashboard');
+                navigate("/dashboard");
               } else {
                 toast.error("Failed to Update Profile");
               }

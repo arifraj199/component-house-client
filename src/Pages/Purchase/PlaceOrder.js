@@ -19,24 +19,22 @@ const PlaceOrder = ({ items, refetch, setCloseModal }) => {
     event.preventDefault();
     const id = _id;
     const quantity = orderQuantity.current.value;
-    console.log(quantity);
     if (quantity >= minimum_order_quantity && quantity <= available_quantity) {
       const { available_quantity, ...rest } = items;
       const newQuantity = parseInt(available_quantity) - parseInt(quantity);
       const newItem = { available_quantity: newQuantity, ...rest };
 
       //for quantity update
-      fetch(`http://localhost:5000/purchase/${id}`, {
+      fetch(`https://pure-sierra-39289.herokuapp.com/purchase/${id}`, {
         method: "PUT",
         headers: {
           "content-type": "application/json",
-          'authorization':`Bearer ${localStorage.getItem('accessToken')}`
+          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
         },
         body: JSON.stringify(newItem),
       })
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
           if (data.success) {
             toast("order is set");
             setOrderError("");
@@ -51,7 +49,7 @@ const PlaceOrder = ({ items, refetch, setCloseModal }) => {
         name: displayName.current.value,
         email: user?.email,
         picture: items?.picture,
-        price:items?.price*quantity,
+        price: items?.price * quantity,
         itemName: items?.name,
         address: address.current.value,
         phone: phoneNumber.current.value,
@@ -59,31 +57,28 @@ const PlaceOrder = ({ items, refetch, setCloseModal }) => {
       };
 
       //post user info
-      fetch("http://localhost:5000/users", {
+      fetch("https://pure-sierra-39289.herokuapp.com/users", {
         method: "POST",
         headers: {
           "content-type": "application/json",
-          'authorization':`Bearer ${localStorage.getItem('accessToken')}`
+          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
         },
         body: JSON.stringify(userInfo),
       })
         .then((res) => res.json())
-        .then((data) => {
-          console.log(data);
-        });
+        .then((data) => {});
 
       // console.log(userInfo);
-      fetch("http://localhost:5000/purchase", {
+      fetch("https://pure-sierra-39289.herokuapp.com/purchase", {
         method: "POST",
         headers: {
           "content-type": "application/json",
-          'authorization':`Bearer ${localStorage.getItem('accessToken')}`
+          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
         },
         body: JSON.stringify(userInfo),
       })
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
           if (data.success) {
             toast.success("data send to the server");
             setCloseModal(false);

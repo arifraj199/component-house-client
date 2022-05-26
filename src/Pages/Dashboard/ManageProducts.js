@@ -11,7 +11,7 @@ const ManageProducts = () => {
     isLoading,
     refetch,
   } = useQuery("products", () =>
-    fetch("http://localhost:5000/component").then((res) => res.json())
+    fetch("https://pure-sierra-39289.herokuapp.com/component").then((res) => res.json())
   );
 
   if (isLoading) {

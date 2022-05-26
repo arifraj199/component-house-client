@@ -4,7 +4,6 @@ import { faStarHalfStroke } from "@fortawesome/free-solid-svg-icons";
 
 const ReviewItem = ({ userReview }) => {
   const { name, company_name, review, ratings, picture } = userReview;
-  console.log(userReview);
   return (
     <div class="card max-w-sm bg-base-100 shadow-xl">
       <figure class="px-10 pt-5 mb-1">

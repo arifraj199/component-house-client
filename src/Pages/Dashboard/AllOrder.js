@@ -10,7 +10,7 @@ const AllOrder = ({ order, index, setDeleteItem, refetch }) => {
     const approve = {
       approve: true,
     };
-    const url = `http://localhost:5000/order/${id}`;
+    const url = `https://pure-sierra-39289.herokuapp.com/order/${id}`;
     fetch(url, {
       method: "PUT",
       headers: {

@@ -7,7 +7,7 @@ import Users from "./Users";
 const AllUser = () => {
   const [deleteIem, setDeleteItem] = useState(null);
   const { data: users, isLoading,refetch } = useQuery("users", () =>
-    fetch("http://localhost:5000/users",{
+    fetch("https://pure-sierra-39289.herokuapp.com/users",{
       method:"GET",
       headers:{
         'authorization':`Bearer ${localStorage.getItem('accessToken')}`
@@ -15,7 +15,6 @@ const AllUser = () => {
     }).then((res) => res.json())
   );
 
-  // console.log(users)
 
   if (isLoading) {
     return <LoadSpinner></LoadSpinner>;

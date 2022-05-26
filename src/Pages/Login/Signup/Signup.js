@@ -37,14 +37,12 @@ const Signup = () => {
   }
 
   if (token) {
-    console.log("user", user, gUser);
-    navigate('/');
+    navigate("/");
   }
 
-  const onSubmit = async(data, event) => {
-    console.log(data);
+  const onSubmit = async (data, event) => {
     await createUserWithEmailAndPassword(data.email, data.password);
-    await updateProfile({ displayName:data.name});
+    await updateProfile({ displayName: data.name });
     event.target.reset();
   };
   return (

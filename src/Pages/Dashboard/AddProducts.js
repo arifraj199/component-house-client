@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
-
 const AddProducts = () => {
   const {
     register,
@@ -16,8 +15,6 @@ const AddProducts = () => {
   const imageAPI = "abba58955c881135661a7c54bf264eca";
 
   const onSubmit = async (data, event) => {
-    console.log(data);
-
     const image = data.picture[0];
     const formData = new FormData();
     formData.append("image", image);
@@ -28,7 +25,6 @@ const AddProducts = () => {
     })
       .then((res) => res.json())
       .then((result) => {
-        console.log(result);
         if (result.success) {
           const img = result.data.url;
 
@@ -41,7 +37,7 @@ const AddProducts = () => {
             picture: img,
           };
 
-          const url = "http://localhost:5000/component";
+          const url = "https://pure-sierra-39289.herokuapp.com/component";
           fetch(url, {
             method: "POST",
             headers: {
@@ -52,7 +48,6 @@ const AddProducts = () => {
           })
             .then((res) => res.json())
             .then((inserted) => {
-              console.log(inserted);
               if (inserted.acknowledged === true) {
                 toast.success("Product Added  Successfully");
                 reset();

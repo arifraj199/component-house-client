@@ -10,23 +10,18 @@ const MyProfile = () => {
   const navigate = useNavigate();
 
   const { data: users, isLoading } = useQuery("users", () =>
-    fetch(`http://localhost:5000/user?email=${user?.email}`,{
-      method:"GET",
-      headers:{
-        'authorization':`Bearer ${localStorage.getItem('accessToken')}`
-      }
-    }).then((res) =>
-      res.json()
-    )
+    fetch(`https://pure-sierra-39289.herokuapp.com/user?email=${user?.email}`, {
+      method: "GET",
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+    }).then((res) => res.json())
   );
 
-  console.log(users);
-
-  if(isLoading){
-    return <LoadSpinner></LoadSpinner>
+  if (isLoading) {
+    return <LoadSpinner></LoadSpinner>;
   }
 
-  // console.log(user.uid);
   return (
     <div>
       <h2 className="text-2xl font-bold text-left">My Profile</h2>

@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
-
 const AddReviews = () => {
   const {
     register,
@@ -16,8 +15,6 @@ const AddReviews = () => {
   const imageAPI = "abba58955c881135661a7c54bf264eca";
 
   const onSubmit = async (data, event) => {
-    console.log(data);
-
     const image = data.picture[0];
     const formData = new FormData();
     formData.append("image", image);
@@ -28,19 +25,18 @@ const AddReviews = () => {
     })
       .then((res) => res.json())
       .then((result) => {
-        console.log(result);
         if (result.success) {
           const img = result.data.url;
 
           const reviewInfo = {
             name: data.name,
             company_name: data.company_name,
-            review:data.review,
+            review: data.review,
             ratings: data.ratings,
             picture: img,
           };
 
-          const url = "http://localhost:5000/review";
+          const url = "https://pure-sierra-39289.herokuapp.com/review";
           fetch(url, {
             method: "POST",
             headers: {
@@ -51,7 +47,6 @@ const AddReviews = () => {
           })
             .then((res) => res.json())
             .then((inserted) => {
-              console.log(inserted);
               if (inserted.acknowledged === true) {
                 toast.success("Review Added Successfully");
                 reset();
@@ -109,7 +104,9 @@ const AddReviews = () => {
           />
           <label className="label">
             {errors.company_name?.type === "required" && (
-              <span className="text-red-500">{errors.company_name?.message}</span>
+              <span className="text-red-500">
+                {errors.company_name?.message}
+              </span>
             )}
           </label>
         </div>
@@ -124,14 +121,14 @@ const AddReviews = () => {
                 value: true,
                 message: "review is required",
               },
-              min:{
-                  value:1,
-                  message:'minimum 1 star'
+              min: {
+                value: 1,
+                message: "minimum 1 star",
               },
-              max:{
-                  value:5,
-                  message:'maximum 5 star'
-              }
+              max: {
+                value: 5,
+                message: "maximum 5 star",
+              },
             })}
             type="text"
             placeholder="Your Review"
@@ -139,19 +136,13 @@ const AddReviews = () => {
           />
           <label className="label">
             {errors.review?.type === "required" && (
-              <span className="text-red-500">
-                {errors.review?.message}
-              </span>
+              <span className="text-red-500">{errors.review?.message}</span>
             )}
             {errors.min?.type === "required" && (
-              <span className="text-red-500">
-                {errors.min?.message}
-              </span>
+              <span className="text-red-500">{errors.min?.message}</span>
             )}
             {errors.max?.type === "required" && (
-              <span className="text-red-500">
-                {errors.max?.message}
-              </span>
+              <span className="text-red-500">{errors.max?.message}</span>
             )}
           </label>
         </div>
@@ -173,9 +164,7 @@ const AddReviews = () => {
           />
           <label className="label">
             {errors.ratings?.type === "required" && (
-              <span className="text-red-500">
-                {errors.ratings?.message}
-              </span>
+              <span className="text-red-500">{errors.ratings?.message}</span>
             )}
           </label>
         </div>

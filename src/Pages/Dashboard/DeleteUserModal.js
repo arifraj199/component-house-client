@@ -4,16 +4,14 @@ import { toast } from "react-toastify";
 const DeleteUserModal = ({ deleteIem, setDeleteItem, refetch }) => {
   const { _id } = deleteIem;
   const handleDelete = (id) => {
-    console.log(id);
-    fetch(`http://localhost:5000/user/${id}`, {
+    fetch(`https://pure-sierra-39289.herokuapp.com/user/${id}`, {
       method: "DELETE",
-      headers:{
-        'authorization':`Bearer ${localStorage.getItem('accessToken')}`
-      }
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data.deletedCount > 0) {
           toast.success("item is deleted");
           setDeleteItem(null);

@@ -1,30 +1,28 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import {
-    useSendPasswordResetEmail,
+  useSendPasswordResetEmail,
   useSignInWithEmailAndPassword,
   useSignInWithGoogle,
 } from "react-firebase-hooks/auth";
 import auth from "../../../firebase.init";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import LoadSpinner from "../../Shared/LoadSpinner";
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
 import useToken from "../../../hooks/useToken";
 
 const Login = () => {
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
   const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
-  const [sendPasswordResetEmail, sending, resetError] = useSendPasswordResetEmail(
-    auth
-  );
+  const [sendPasswordResetEmail, sending, resetError] =
+    useSendPasswordResetEmail(auth);
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const [token] = useToken(user || gUser)
-//   const emailRef = useRef('');
+  const [token] = useToken(user || gUser);
   let errorMessage;
   const navigate = useNavigate();
 
@@ -32,11 +30,11 @@ const Login = () => {
 
   let from = location.state?.from?.pathname || "/";
 
-  useEffect( ()=>{
+  useEffect(() => {
     if (token) {
       navigate(from, { replace: true });
     }
-  },[token,from,navigate])
+  }, [token, from, navigate]);
 
   if (error || gError || resetError) {
     errorMessage = (
@@ -50,24 +48,20 @@ const Login = () => {
     return <LoadSpinner></LoadSpinner>;
   }
 
-
-  const onSubmit = async(data, event) => {
-    console.log(data);
+  const onSubmit = async (data, event) => {
     await signInWithEmailAndPassword(data.email, data.password);
     event.target.reset();
   };
 
-  const handleReset = async (event)=>{
+  const handleReset = async (event) => {
     const email = event.target.name?.value;
-      console.log(email);
     await sendPasswordResetEmail(email);
-    if(email){
-        toast.success('reset email send');
-    }else{
-        toast.error('please enter your email');
+    if (email) {
+      toast.success("reset email send");
+    } else {
+      toast.error("please enter your email");
     }
-    
-  }
+  };
 
   return (
     <div class="hero min-h-screen bg-base-100">

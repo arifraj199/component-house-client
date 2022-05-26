@@ -15,7 +15,7 @@ const MyOrder = () => {
     isLoading,
     refetch,
   } = useQuery("orders", () =>
-    fetch(`http://localhost:5000/purchase?email=${user?.email}`,{
+    fetch(`https://pure-sierra-39289.herokuapp.com/purchase?email=${user?.email}`,{
       method:"GET",
       headers:{
         'authorization':`Bearer ${localStorage.getItem('accessToken')}`

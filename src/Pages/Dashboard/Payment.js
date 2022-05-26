@@ -13,14 +13,14 @@ const stripePromise = loadStripe(
 const Payment = () => {
   const { id } = useParams();
   const { data: items, isLoading } = useQuery(["items", id], () =>
-    fetch(`http://localhost:5000/order/${id}`, {
+    fetch(`https://pure-sierra-39289.herokuapp.com/order/${id}`, {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
       },
     }).then((res) => res.json())
   );
-  console.log(items);
+
   if (isLoading) {
     return <LoadSpinner></LoadSpinner>;
   }

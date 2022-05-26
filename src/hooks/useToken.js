@@ -9,7 +9,7 @@ const useToken = (user) => {
     const newUser = { email: email,name:name };
     // console.log(user);
     if (email) {
-      fetch(`http://localhost:5000/user/${email}`, {
+      fetch(`https://pure-sierra-39289.herokuapp.com/user/${email}`, {
         method: "PUT",
         headers: {
           "content-type": "application/json",

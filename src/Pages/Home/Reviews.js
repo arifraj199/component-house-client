@@ -4,7 +4,7 @@ import LoadSpinner from "../Shared/LoadSpinner";
 import ReviewItem from "./ReviewItem";
 
 const Reviews = () => {
-    const {data:reviews,isLoading} = useQuery('reviews',()=>fetch('http://localhost:5000/review').then(res=>res.json()))
+    const {data:reviews,isLoading} = useQuery('reviews',()=>fetch('https://pure-sierra-39289.herokuapp.com/review').then(res=>res.json()))
 
     if(isLoading){
         return <LoadSpinner></LoadSpinner>

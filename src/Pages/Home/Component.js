@@ -11,7 +11,6 @@ const Component = ({ component }) => {
     available_quantity,
     description,
   } = component;
-  // console.log(component);
   const navigate = useNavigate();
   return (
     <div class="card w-max-lg bg-base-100 shadow-xl my-8">
@@ -35,7 +34,12 @@ const Component = ({ component }) => {
           <small>{description}</small>
         </p>
         <div class="mt-4 justify-end">
-          <button onClick={()=>navigate(`/purchase/${_id}`)} class="btn btn-primary w-full">Place Order</button>
+          <button
+            onClick={() => navigate(`/purchase/${_id}`)}
+            class="btn btn-primary w-full"
+          >
+            Place Order
+          </button>
         </div>
       </div>
     </div>
