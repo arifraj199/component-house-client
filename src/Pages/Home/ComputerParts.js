@@ -7,6 +7,7 @@ const ComputerParts = () => {
   fetch("http://localhost:5000/component")
     .then((res) => res.json())
     .then((data) => {
+      console.log(data);
       setComponents(data);
     });
 

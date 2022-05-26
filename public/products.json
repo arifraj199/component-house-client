@@ -4,54 +4,81 @@
       "price": 20.19,
       "picture": "https://i.ibb.co/chGXvHX/processor.jpg",
       "minimum_order_quantity": 80,
-      "available_quantity": 251,
+      "available_quantity": 598,
       "name": "Intel Core i9 Processor ",
-      "description": "Tempor ea consectetur excepteur nostrud sint incididunt elit ea ad mollit cupidatat irure consequat eiusmod. Elit minim voluptate laborum est sint anim aliqua ullamco ipsum qui ut laboris excepteur."
+      "description": "A processor is like a computer's brain - and Intel® Core™ processors are the most powerful. They have multiple cores for more power and smoother multi-tasking. There are 4 main categories: i3, i5, i7 and i9. Each has numerous spec options, but strictly speaking i5 is superior to i3 and so on."
     },
     {
       "id": "628a1af18d4ec97b66d39f8e",
       "price": 36.96,
       "picture": "https://i.ibb.co/T8M2zJV/ram-1.jpg",
       "minimum_order_quantity": 80,
-      "available_quantity": 201,
+      "available_quantity": 578,
       "name": "Samsung DDR3 Ram",
-      "description": "Qui veniam nulla aute occaecat minim in laborum laboris sit velit ad pariatur deserunt. Sit nostrud excepteur laborum elit exercitation officia. Mollit aliquip et irure dolore. "
+      "description": "Computer random access memory (RAM) is one of the most important components in determining your system's performance. RAM gives applications a place to store and access data on a short-term basis. It stores the information your computer is actively using so that it can be accessed quickly. The more programs your system is running, the more you'll need "
     },
     {
       "id": "628a1af1e531bddcd590dd44",
       "price": 30.38,
       "picture": "https://i.ibb.co/gDw8zq3/hdd.jpg",
       "minimum_order_quantity": 80,
-      "available_quantity": 262,
+      "available_quantity": 975,
       "name": "Tosiba 1TB Hard Drive",
-      "description": "Exercitation cupidatat excepteur consectetur esse eiusmod laborum mollit deserunt exercitation. Mollit tempor id non commodo cillum excepteur. Ex laboris velit proident non ex aute ut elit aliquip excepteur non sit ex."
+      "description": "A computer hard drive (or a hard disk or HDD) is one kind of technology that stores the operating system, applications, and data files such a documents, pictures and music that your computer uses."
     },
     {
       "id": "628a1af153b5dc4f78d9f93f",
       "price": 13.9,
       "picture": "https://i.ibb.co/F7kmV2X/graphics-1.jpg",
       "minimum_order_quantity": 80,
-      "available_quantity": 263,
+      "available_quantity": 899,
       "name": "Nvidia 2gb Graphics",
-      "description": "Ad consequat enim sit officia id nostrud non id laboris deserunt sit pariatur pariatur id. In velit deserunt proident ut. Mollit sit minim sint sint nulla velit mollit elit consequat deserunt minim dolore. "
+      "description": "What Is Nvidia Graphics Card For? Graphics cards are used by computers to display images and are part of the PC's expansion system. Gaming, ray tracing, graphics production, and mining cryptocurrency are a few of the uses for high-end GPUs "
     },
     {
       "id": "628a1af17ac7f1c0df373304",
       "price": 10.52,
       "picture": "https://i.ibb.co/r7DP6rr/motherboard-1.jpg",
       "minimum_order_quantity": 80,
-      "available_quantity": 292,
+      "available_quantity": 478,
       "name": "Gigabyte Motherboard",
-      "description": "Incididunt incididunt eiusmod ex incididunt consectetur consectetur magna ipsum. Elit ipsum minim commodo labore exercitation adipisicing sint proident reprehenderit commodo laboris."
+      "description": "Gigabyte products are generally well-built, and many gamers around the world swear by their motherboards. Gigabyte was once known for making high-quality products at reasonable prices, but they're now charging customers more to get a motherboard that's similar in terms of performance as other brands' models."
     },
     {
       "id": "628a1af1bcfb901cd5e360bb",
       "price": 31.91,
       "picture": "https://i.ibb.co/jZYmJ4S/ssd-1.jpg",
       "minimum_order_quantity": 80,
-      "available_quantity": 171,
+      "available_quantity": 977,
       "name": "Samsung 256gb SSD",
-      "description": "Minim aliqua ipsum magna ad magna magna ex ipsum velit. Qui incididunt irure fugiat sit commodo do elit occaecat irure cillum quis pariatur. "
+      "description": "A solid-state drive (SSD) is a new generation of storage device used in computers. SSDs use flash-based memory, which is much faster than a traditional mechanical hard disk. Upgrading to an SSD is one of the best ways to speed up your computer."
+    },
+    {
+      "id": "628a1af1bcfb901cd5e360bb",
+      "price": 21.91,
+      "picture": "https://i.ibb.co/ydZt2SL/ide-cable.jpg",
+      "minimum_order_quantity": 80,
+      "available_quantity": 456,
+      "name": "IDE CABLE",
+      "description": "IDE, an acronym for Integrated Drive Electronics, is a standard type of connection for storage devices in a computer. Generally, IDE refers to the types of cables and ports used to connect some hard drives and optical drives to each other and to the motherboard. "
+    },
+    {
+      "id": "628a1af1bcfb901cd5e360bb",
+      "price": 41.91,
+      "picture": "https://i.ibb.co/S3kK04k/power-supply-1.jpg",
+      "minimum_order_quantity": 80,
+      "available_quantity": 967,
+      "name": "Power Supply",
+      "description": "The power supply is located at the back of the computer, usually at the top. However, many more recent tower computer cases house the power supply at the bottom back of the case. In a desktop computer case (all-in-one), the power supply is located at the back left or back right. "
+    },
+    {
+      "id": "628a1af1bcfb901cd5e360bb",
+      "price": 35.91,
+      "picture": "https://i.ibb.co/pKhLqyq/Toshiba-SD-5915-300x300.jpg",
+      "minimum_order_quantity": 80,
+      "available_quantity": 789,
+      "name": "DVD Drive",
+      "description": "An optical disc drive (ODD) in a computer system allows you to use CDs, DVDs, and Blu-ray discs to listen to music or watch a movie. Most drives also allow you to write data to a disc, so you can create your own music CDs, video DVDs or even create of back-up copy of your important data files."
     }
   ]
 

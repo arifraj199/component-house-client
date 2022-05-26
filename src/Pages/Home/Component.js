@@ -11,6 +11,7 @@ const Component = ({ component }) => {
     available_quantity,
     description,
   } = component;
+  // console.log(component);
   const navigate = useNavigate();
   return (
     <div class="card w-max-lg bg-base-100 shadow-xl my-8">
