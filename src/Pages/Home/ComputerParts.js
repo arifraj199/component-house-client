@@ -14,7 +14,7 @@ const ComputerParts = () => {
     const end = components?.length;
 
   return (
-    <div>
+    <div className="my-16">
       <h2 className="text-4xl font-bold">Components:{components.length}</h2>
       <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 px-8 lg:px-10">
         {components.slice(start,end).map((component) => (

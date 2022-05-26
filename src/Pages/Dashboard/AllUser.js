@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { useQuery } from "react-query";
 import LoadSpinner from "../Shared/LoadSpinner";
+import DeleteUserModal from "./DeleteUserModal";
 import Users from "./Users";
 
 const AllUser = () => {
+  const [deleteIem, setDeleteItem] = useState(null);
   const { data: users, isLoading,refetch } = useQuery("users", () =>
     fetch("http://localhost:5000/users",{
       method:"GET",
@@ -36,10 +38,17 @@ const AllUser = () => {
         </thead>
         <tbody>
           {users.map((user, index) => (
-            <Users key={index} user={user} index={index} refetch={refetch}></Users>
+            <Users key={index} user={user} index={index} setDeleteItem={setDeleteItem} refetch={refetch}></Users>
           ))}
         </tbody>
       </table>
+      {deleteIem && (
+            <DeleteUserModal
+              deleteIem={deleteIem}
+              setDeleteItem={setDeleteItem}
+              refetch={refetch}
+            ></DeleteUserModal>
+          )}
     </div>
   );
 };

@@ -1,15 +1,15 @@
 import React from "react";
 import { toast } from "react-toastify";
 
-const RemoveItemModal = ({ deleteIem, setDeleteItem, refetch }) => {
+const DeleteUserModal = ({ deleteIem, setDeleteItem, refetch }) => {
   const { _id } = deleteIem;
   const handleDelete = (id) => {
     console.log(id);
-    fetch(`http://localhost:5000/order/${id}`, {
+    fetch(`http://localhost:5000/user/${id}`, {
       method: "DELETE",
-      headers: {
-        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-      },
+      headers:{
+        'authorization':`Bearer ${localStorage.getItem('accessToken')}`
+      }
     })
       .then((res) => res.json())
       .then((data) => {
@@ -23,7 +23,7 @@ const RemoveItemModal = ({ deleteIem, setDeleteItem, refetch }) => {
   };
   return (
     <div>
-      <input type="checkbox" id="remove-modal" class="modal-toggle" />
+      <input type="checkbox" id="delete-user-modal" class="modal-toggle" />
       <div class="modal modal-bottom sm:modal-middle">
         <div class="modal-box">
           <h1 class="font-bold text-lg text-2xl">
@@ -36,12 +36,12 @@ const RemoveItemModal = ({ deleteIem, setDeleteItem, refetch }) => {
             <button
               onClick={() => handleDelete(_id)}
               className="btn btn-error"
-              for="remove-modal"
+              for="delete-user-modal"
             >
               Delete
             </button>
 
-            <label for="remove-modal" class="btn btn-warning">
+            <label for="delete-user-modal" class="btn btn-warning">
               Cancel
             </label>
           </div>
@@ -51,4 +51,4 @@ const RemoveItemModal = ({ deleteIem, setDeleteItem, refetch }) => {
   );
 };
 
-export default RemoveItemModal;
+export default DeleteUserModal;

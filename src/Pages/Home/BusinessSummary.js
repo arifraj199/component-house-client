@@ -7,7 +7,7 @@ import { faPeopleCarryBox } from '@fortawesome/free-solid-svg-icons';
 
 const BusinessSummary = () => {
   return (
-    <div className="my-12">
+    <div className="my-20">
       <h2 className="text-4xl font-bold">Business Summery</h2>
       <p className="text-slate-500"><small>Take a Look Our User Experience</small></p>
 

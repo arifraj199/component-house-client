@@ -3,6 +3,7 @@ import Footer from '../Shared/Footer';
 import Banner from './Banner';
 import BusinessSummary from './BusinessSummary';
 import ComputerParts from './ComputerParts';
+import ConnectUs from './ConnectUs';
 import Reviews from './Reviews';
 
 const Home = () => {
@@ -12,6 +13,7 @@ const Home = () => {
             <ComputerParts></ComputerParts>
             <BusinessSummary></BusinessSummary>
             <Reviews></Reviews>
+            <ConnectUs></ConnectUs>
             <Footer></Footer>
         </div>
     );

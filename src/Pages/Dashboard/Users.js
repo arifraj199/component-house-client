@@ -2,7 +2,7 @@ import React from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { toast } from 'react-toastify';
-const Users = ({user,index,refetch}) => {
+const Users = ({user,index,setDeleteItem,refetch}) => {
 
     const {email,name,phone,role} = user;
 
@@ -36,7 +36,13 @@ const Users = ({user,index,refetch}) => {
           role !== 'admin' &&
           <button onClick={makeAdmin} class="btn btn-sm bg-green-800 text-white border-0">Make Admin</button>
           }</td>
-        <td><button class="btn btn-sm bg-red-800 text-white border-0"><FontAwesomeIcon icon={faTrash}></FontAwesomeIcon></button></td>
+        <td><label
+          onClick={() => setDeleteItem(user)}
+          for="delete-user-modal"
+          class="btn bg-red-800 modal-button"
+        >
+          <FontAwesomeIcon icon={faTrash}></FontAwesomeIcon>
+        </label></td>
       </tr>
     );
 };
