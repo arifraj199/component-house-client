@@ -124,6 +124,14 @@ const AddReviews = () => {
                 value: true,
                 message: "review is required",
               },
+              min:{
+                  value:1,
+                  message:'minimum 1 star'
+              },
+              max:{
+                  value:5,
+                  message:'maximum 5 star'
+              }
             })}
             type="text"
             placeholder="Your Review"
@@ -133,6 +141,16 @@ const AddReviews = () => {
             {errors.review?.type === "required" && (
               <span className="text-red-500">
                 {errors.review?.message}
+              </span>
+            )}
+            {errors.min?.type === "required" && (
+              <span className="text-red-500">
+                {errors.min?.message}
+              </span>
+            )}
+            {errors.max?.type === "required" && (
+              <span className="text-red-500">
+                {errors.max?.message}
               </span>
             )}
           </label>
